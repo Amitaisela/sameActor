@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My List</title>
+</head>
+<body>
+	<h1>My List</h1>
+    <ul>
+        {% for key, value in my_dict.items %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>  
+</body>
+</html>

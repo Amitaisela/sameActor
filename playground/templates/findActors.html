@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie/TV Series Input Page</title>
+	<style>
+		body {
+			background-color: #181818;
+			color: #fff;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+		}
+
+		h1 {
+			font-size: 48px;
+			margin-top: 50px;
+			margin-bottom: 30px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		form {
+			background-color: #222;
+			border: 2px solid #444;
+			border-radius: 10px;
+			margin: 0 auto;
+			padding: 30px;
+			width: 500px;
+		}
+
+		label {
+			display: block;
+			font-size: 24px;
+			margin-bottom: 20px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		input[type="text"] {
+			background-color: #444;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			font-size: 18px;
+			height: 40px;
+			margin-bottom: 20px;
+			padding: 10px;
+			width: 100%;
+		}
+
+		input[type="submit"] {
+			background-color: #ff8c00;
+			border: none;
+			border-radius: 5px;
+			color: #fff;
+			cursor: pointer;
+			font-size: 24px;
+			height: 50px;
+			margin-top: 20px;
+			text-transform: uppercase;
+			width: 100%;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #ff4500;
+			transition: background-color 0.3s ease-in-out;
+		}
+	</style>
+</head>
+<body>
+	<h1>Movie/TV Series Input Page</h1>
+	<form method="post" action="{% url 'result' %}">
+		{% csrf_token %}
+		<label for="value1">Enter movie and/or TV series names, separated by a <strong>semicolon (;)</strong>:</label>
+		<input type="text" id="value1" name="value1" placeholder="e.g. Breaking Bad;The Godfather;Pulp Fiction"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
