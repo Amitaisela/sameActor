@@ -3,15 +3,14 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
-import config
 
 # Create your views here.
-api_key = config.tmdb_api_key
+api_key = '7ef494ceac7314eeb6501cb3f35c9915'
 base_url = 'https://api.themoviedb.org/3'
 
 
 def getActors(request):
-    return render(request, 'findActors.html')
+    return render(request, 'findActors.html', {'isEmpty': False})
 
 
 def get_common_actors(request, movie_titles, htmlSite):
@@ -73,6 +72,8 @@ def result(request):
     if request.method == 'POST':
         value1 = request.POST['value1']
         result = value1.split(";")
+        if len(result) == 1:
+            return render(request, 'findActors.html', {'isEmpty': True})
         return get_common_actors(request, movie_titles=result, htmlSite='result.html')
     else:
-        return render(request, 'ERROR.html')
+        return render(request, 'findActors.html', {'isEmpty': False})
