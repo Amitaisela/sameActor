@@ -9,6 +9,10 @@ api_key = '7ef494ceac7314eeb6501cb3f35c9915'
 base_url = 'https://api.themoviedb.org/3'
 
 
+def home(request):
+    return render(request, 'home.html')
+
+
 def getActors(request):
     return render(request, 'findActors.html', {'isEmpty': False})
 
