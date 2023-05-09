@@ -3,9 +3,9 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
-
+import config
 # Create your views here.
-api_key = '7ef494ceac7314eeb6501cb3f35c9915'
+api_key = config.API_KEY
 base_url = 'https://api.themoviedb.org/3'
 
 
