@@ -28,6 +28,7 @@ def get_common_actors(request, movie_titles, htmlSite):
             movie_id = search_results[0].getID()
             movie_ids.append(movie_id)
     common_actors = set()
+    print("found movies")
     # if we have more than one movie. ( redundant )
     if len(movie_ids) > 0:
         # make sure that we have at least one actor in the set ( redundant )
@@ -42,7 +43,7 @@ def get_common_actors(request, movie_titles, htmlSite):
 
     results = list(common_actors)
     actorsDict = {}
-
+    print("found actors")
     # find the rest of the information on the actors from the results list
     for result in results:
         search_url = f'{base_url}/search/person'
@@ -77,7 +78,7 @@ def get_common_actors(request, movie_titles, htmlSite):
 
         actorsDict[actor_details['name']] = [
             age, f'https://image.tmdb.org/t/p/w500{actor_details["profile_path"]}']
-
+    print("found actors information")
     actorsDict = dict(sorted(actorsDict.items()))
     return render(request, htmlSite, {'my_dict': actorsDict})
 
